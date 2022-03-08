@@ -5,42 +5,85 @@ const { Schema } = mongoose;
 
 const CursoSchema = new Schema(
     {
-        name: {
-            type: String
+        nome: {
+            type: String,
+            required: true
         },
-        description: {
-            type: String
+        descricao: {
+            type: String,
+            required: true
 
         },
-        shift: {
+        turno: {
             type: String,
             enum: ['Matutino', 'Vespertino', 'Noturno'],
-            default: 'Matutino'
+            default: 'Matutino',
+            required: true
 
         },
-        maxVac: {
-            type: String
+        maxVagas: {
+            type: Number,
+            required: true
         }
     }
 )
-const CursoModel = mongoose.model('CursoModel', CursoSchema)
 
 
 const AlunoSchema = new Schema(
     {
         nome: {
-            type: String
+            type: String,
+            required: true
         },
         email: {
-            type: String
+            type: String,
+            required: true
 
         },
 
         _id: {
-            type: String
+            type: String,
+            required: true
         }
     }
 )
-const AlunoModel = mongoose.model('AlunoModel', AlunoSchema)
 
-module.exports = { CursoModel, AlunoModel }
+
+const MatriculaSchema = new Schema(
+    {
+        userId: {
+            type: String,
+            required: true
+
+        },
+        courseId: {
+            type: String,
+            required: true
+
+        }
+    }
+)
+
+const NotaSchema = new Schema(
+    {
+        matriculaId: {
+            type: String,
+            required: true
+
+        },
+        nota: {
+            type: Number,
+            required: true
+
+        }
+    }
+)
+
+
+
+const MatriculaModel = mongoose.model('MatriculaModel', MatriculaSchema)
+const NotaModel = mongoose.model("NotaModel", NotaSchema)
+const AlunoModel = mongoose.model('AlunoModel', AlunoSchema)
+const CursoModel = mongoose.model('CursoModel', CursoSchema)
+
+module.exports = { CursoModel, AlunoModel, MatriculaModel, NotaModel }
