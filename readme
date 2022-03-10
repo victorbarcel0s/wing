@@ -33,7 +33,7 @@ body:
 {
 "nome": "Victor",
 "email": "victor@gmail.com",
-"\_id": "144.785.485-78"
+"_id": "144.785.485-78"
 }
 
 ---
@@ -77,7 +77,7 @@ campos possíveis:
 {
 "nome": "Victor",
 "email": "victor@gmail.com",
-"\_id": "144.785.485-78"
+"_id": "144.785.485-78"
 }
 
 ---
@@ -115,7 +115,7 @@ campos possíveis:
 deleta aluno
 campos possíveis:
 {
-"\_id": "1545484"
+"_id": "1545484"
 }
 
 ---
@@ -124,7 +124,7 @@ campos possíveis:
 deleta nota
 campos possíveis:
 {
-"\_id": "6227d799b193568740d2bad9"
+"_id": "6227d799b193568740d2bad9"
 }
 
 ---
