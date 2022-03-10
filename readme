@@ -6,3 +6,135 @@ Após rodar:
 1- Acesse o endpoint 'http://localhost:7070/get/token' para conseguir um token para realizar as requisições, o token tem expiração de 15 minutos (900 segundos)
 2- TODA REQUISIÇÃO DEPENDE DO TOKEN PARA SER EXECUTADA
 3- O token deve ser passado no header 'x-access-token'
+
+EndPoints:
+/get/curso -> retorna todos os cursos
+/get/matriculas -> retorna todas as matriculas
+/get/notas -> retorna todas as notas
+/get/alunos -> retorna todos os alunos
+
+---
+
+/post/curso:
+-> registra um curso
+body:
+{
+"nome": "Ciências da computaçao",
+"descricao": "computaçao aplicada",
+"turno": "Matutino",
+"maxVagas": "2"
+}
+
+---
+
+/post/aluno:
+-> registra um aluno
+body:
+{
+"nome": "Victor",
+"email": "victor@gmail.com",
+"\_id": "144.785.485-78"
+}
+
+---
+
+/post/matricula:
+-> registra uma matricula
+body:
+{
+"userId": "144.785.485-78",
+"courseId": "622a39c5460ca7b6fcb97956"
+
+---
+
+}
+
+/post/nota:
+-> registra uma nota
+body:
+{
+"matriculaId":"6227d71a0f16689c335ec1ae",
+"nota": 9.2
+}
+
+---
+
+/put/curso:
+update no curso
+campos possíveis:
+{
+"nome": "Ciências da computaçao",
+"descricao": "computaçao aplicada",
+"turno": "Matutino",
+"maxVagas": "2"
+}
+
+---
+
+/put/aluno:
+update no aluno
+campos possíveis:
+{
+"nome": "Victor",
+"email": "victor@gmail.com",
+"\_id": "144.785.485-78"
+}
+
+---
+
+/put/matricula:
+update na matricula
+campos possíveis:
+{
+"userId": "144.785.485-78",
+"courseId": "622a39c5460ca7b6fcb97956"
+}
+
+---
+
+/put/nota:
+update na nota
+campos possíveis:
+{
+"matriculaId":"6227d71a0f16689c335ec1ae",
+"nota": 9.2
+}
+
+---
+
+/delete/curso:
+deleta curso
+campos possíveis:
+{
+"cursoId": "622a39c5460ca7b6fcb97956"
+}
+
+---
+
+/delete/aluno:
+deleta aluno
+campos possíveis:
+{
+"\_id": "1545484"
+}
+
+---
+
+/delete/nota:
+deleta nota
+campos possíveis:
+{
+"\_id": "6227d799b193568740d2bad9"
+}
+
+---
+
+/delete/matricula:
+deleta matricula
+campos possíveis:
+{
+"userId": '',
+"courseId": '',
+}
+
+---

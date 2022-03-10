@@ -67,6 +67,10 @@ async function deleteStudent(req, res) {
             // ↑↑↑ validando a matricula pra ver se ele esta matriculado, só avança dse não estiver
             await db.alunoCollection.deleteOne({ _id: _id });
             // ↑↑↑ deletou o aluno
+
+            await db.matriculaCollection.deleteMany({ userId: _id });
+            // ↑↑↑ deletou as matriculas do aluno
+
             res.status(200).json('Aluno excluído com sucesso');
             // ↑↑↑ retornou sucesso
         } else {

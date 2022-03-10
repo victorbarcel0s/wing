@@ -64,6 +64,10 @@ async function encerrarMatricula(req, res) {
             userId: info.userId,
             courseId: info.courseId,
         });
+        await db.courseCollection.updateOne(
+            { _id: ObjectId(info.courseId) },
+            { $inc: { dispVagas: +1 } },
+        );
         res.status(200).json('Removido com sucesso');
     } catch (error) {
         res.status(401).json(error.message);
