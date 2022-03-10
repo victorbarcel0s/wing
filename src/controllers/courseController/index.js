@@ -34,12 +34,13 @@ async function deleteCourse(req, res) {
         verifyMatriculados = await db.matriculaCollection.findOne({
             courseId: cursoId,
         });
-        if (verifyExists == null) {
-            res.status(404).json('Curso não encontrado');
-        } else if (verifyMatriculados == null) {
-            await db.courseCollection.deleteOne({ _id: ObjectId(cursoId) });
-            res.status(200).json('Curso removido com sucesso');
-        } else res.status(401).json('Existem alunos matriculados nesse curso');
+        if (verifyExists == null) throw new Error('Curso não encontrado');
+
+        if (verifyMatriculados != null)
+            throw new Error('Existem alunos matriculados nesse curso');
+
+        await db.courseCollection.deleteOne({ _id: ObjectId(cursoId) });
+        res.status(200).json('Curso removido com sucesso');
     } catch (error) {
         if (
             error.message ==

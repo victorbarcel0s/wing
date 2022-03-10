@@ -5,7 +5,6 @@ const models = require('../../models');
 async function registerStudent(req, res) {
     const student = new models.AlunoModel(req.body);
 
-    // ↑↑↑ verifocu se os campos estão com os tipos corretos
     try {
         await db.client.connect();
         const verifyId = await db.alunoCollection.findOne({
@@ -91,8 +90,25 @@ async function deleteStudent(req, res) {
     }
 }
 
+async function updateStudent(req, res) {
+    try {
+        const infoToUpdate = new models.AlunoModel(req.body);
+        await db.client.connect();
+        const response = await db.alunoCollection.updateOne(
+            { _id: infoToUpdate._id },
+            {
+                $set: infoToUpdate,
+            },
+        );
+        res.status(200).json(response);
+    } catch (error) {
+        res.status(400).json(error.message);
+    }
+}
+
 module.exports = {
     registerStudent,
     getStudents,
     deleteStudent,
+    updateStudent,
 };

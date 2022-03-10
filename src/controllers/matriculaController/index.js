@@ -69,8 +69,24 @@ async function encerrarMatricula(req, res) {
         res.status(401).json(error.message);
     }
 }
+async function updateMatricula(req, res) {
+    try {
+        const infoToUpdate = new models.MatriculaModel(req.body);
+        await db.client.connect();
+        const response = await db.matriculaCollection.updateOne(
+            { _id: infoToUpdate._id },
+            {
+                $set: infoToUpdate,
+            },
+        );
+        res.status(200).json(response);
+    } catch (error) {
+        res.status(400).json(error.message);
+    }
+}
 module.exports = {
     matricular,
     getMatriculas,
     encerrarMatricula,
+    updateMatricula,
 };

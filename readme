@@ -1,0 +1,8 @@
+Para rodar:
+1- rode o comando 'npm i' dentro da pasta raiz para instalar as dependências do projeto
+2- rode o comando 'npm run server' dentro da pasta raiz para rodar a aplicação na porta 7070
+
+Após rodar:
+1- Acesse o endpoint 'http://localhost:7070/get/token' para conseguir um token para realizar as requisições, o token tem expiração de 15 minutos (900 segundos)
+2- TODA REQUISIÇÃO DEPENDE DO TOKEN PARA SER EXECUTADA
+3- O token deve ser passado no header 'x-access-token'
