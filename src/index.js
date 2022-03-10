@@ -17,7 +17,7 @@ api.get('/get/token', authController.generateJWT);
 //GETS
 api.get(
     '/get/cursos',
-    // authController.verifyJWT,
+    authController.verifyJWT,
     courseController.getAllCourses,
 );
 api.get('/get/alunos', authController.verifyJWT, alunoController.getStudents);
